@@ -1,0 +1,27 @@
+{
+  "type": "module",
+  "name": "1612215-bt3",
+  "version": "1.0.0",
+  "description": "Bài Tập 3 Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nthoang74/1612215-bt3.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nthoang74/1612215-bt3/issues"
+  },
+  "homepage": "https://github.com/nthoang74/1612215-bt3#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "express": "^4.18.2",
+    "express-handlebars": "^6.0.6",
+    "morgan": "^1.10.0"
+  }
+}
