@@ -1,14 +1,9 @@
-import express from 'express';
-import { create } from 'express-handlebars';
+const express = require('express');
+const { engine } = require('express-handlebars');
+const morgan = require('morgan');
+const cookieParser = require('cookie-parser')
 
-import morgan from 'morgan';
-import cookieParser from 'cookie-parser'
-import  path from 'path'
-
-const hbs = create({
-    extname
-});
-// var indexRouter = require('./routes/index');
+const indexRouter = require('./src/routes/index.js');
 // var usersRouter = require('./routes/users');
 
 const app = express();
@@ -20,22 +15,24 @@ const port = 16215;
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
 
 // Template engine
-app.engine('handlebars', hbs.engine);
-app.set('view engine', 'handlebars');
-app.set('views', './views');
+
+app.engine('.hbs', engine({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
+app.set('views', './src/views');
 
 
 // Routes
 
-app.get('/', (req, res) => {
-    res.render('home')
-});
+// app.get('/', (req, res, next) => {
+//     res.render('home')
+// });
 
 
-// app.use('/', indexRouter);
+
+app.use('/', indexRouter);
 // app.use('/users', usersRouter);
 
 
